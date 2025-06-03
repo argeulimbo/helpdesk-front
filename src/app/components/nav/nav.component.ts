@@ -5,6 +5,7 @@ import { ViewEncapsulation } from '@angular/core';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-nav',
@@ -20,4 +21,10 @@ import { MatIconModule } from '@angular/material/icon';
 })
 export class NavComponent {
 
+  constructor(private router: Router) {
+  }
+
+  ngOnInit(): void {
+    this.router.navigate(['home'])
+  }
 }
