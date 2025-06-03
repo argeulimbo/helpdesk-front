@@ -32,6 +32,9 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatToolbarModule } from '@angular/material/toolbar';
 
+// Componentes do projeto
+import { NavComponent } from './components/nav/nav.component';
+
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -63,7 +66,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
             MatTabsModule,
             MatToolbarModule,
             FormsModule,
-            ReactiveFormsModule
+            ReactiveFormsModule,
+            NavComponent
           ],
 
   templateUrl: './app.component.html',
