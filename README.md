@@ -25,3 +25,13 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+
+## Convention Commits
+Commits based on this [CONVENTION](https://github.com/digitalinnovationone/dio-lab-open-source/blob/main/CONTRIBUTING.md#conven%C3%A7%C3%A3o-de-commits)
+
+* feat: new function in the project.
+* fix: fix bug or problem in the project.
+* docs: change documentation of project.
+* style: make changes on appearence, without alter functionaly.
+* refactor: make changes on source that not alterying functionaly.
+* test: adds or modifies tests in the project.
