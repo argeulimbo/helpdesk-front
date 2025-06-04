@@ -1,10 +1,14 @@
 import { Component } from '@angular/core';
 import { ViewEncapsulation } from '@angular/core';
+
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
+
 import { Router } from '@angular/router';
 import { RouterOutlet } from '@angular/router';
+
+import { HeaderComponent } from '../header/header.component';
 
 @Component({
   selector: 'app-nav',
@@ -13,7 +17,8 @@ import { RouterOutlet } from '@angular/router';
     MatSidenavModule,
     MatListModule,
     MatIconModule,
-    RouterOutlet
+    RouterOutlet,
+    HeaderComponent
   ],
   templateUrl: './nav.component.html',
   styleUrl: './nav.component.css',
