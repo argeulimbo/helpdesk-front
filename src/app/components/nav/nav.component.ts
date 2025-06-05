@@ -5,10 +5,10 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
 
-import { Router } from '@angular/router';
-import { RouterOutlet } from '@angular/router';
+import { Router, RouterModule, RouterOutlet } from '@angular/router';
 
 import { HeaderComponent } from '../header/header.component';
+import { TecnicoListComponent } from '../tecnico/tecnico-list/tecnico-list.component';
 
 @Component({
   selector: 'app-nav',
@@ -18,7 +18,9 @@ import { HeaderComponent } from '../header/header.component';
     MatListModule,
     MatIconModule,
     RouterOutlet,
-    HeaderComponent
+    RouterModule,
+    HeaderComponent,
+    TecnicoListComponent
   ],
   templateUrl: './nav.component.html',
   styleUrl: './nav.component.css',
@@ -30,6 +32,8 @@ export class NavComponent {
   }
 
   ngOnInit(): void {
-    this.router.navigate(['home'])
+    if (this.router.url == '/') {
+      this.router.navigate(['home']);
+    }
   }
 }
