@@ -3,7 +3,7 @@
     background: linear-gradient(180deg, rgba(2, 0, 36, 1) 0%, rgba(37, 97, 207, 1) 0%, rgba(0, 212, 255, 1) 100%);
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
 }
 
 .form {
@@ -20,6 +20,12 @@ h1 {
     font-size: 1.8rem;
 }
 
+img {
+    height: 15rem;
+    width: 90%;
+    margin: auto;
+}
+
 .full-width {
     width: 100%;
 
@@ -27,9 +33,15 @@ h1 {
 
 button {
     height: 4rem;
+    width: 20rem;
+    margin-left: 5rem;
+    margin-top: 2rem;
     font-size: 1.2rem;
     text-decoration: none;
     border-radius: 1rem;
     border: none;
     cursor: pointer;
+    background: rgba(2, 0, 36, 1);
+    /* background: linear-gradient(180deg, rgba(2, 0, 36, 1) 0%, rgba(37, 97, 207, 1) 0%, rgba(0, 212, 255, 1) 100%); */
+    color: white;
 }
