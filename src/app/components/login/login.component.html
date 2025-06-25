@@ -29,7 +29,7 @@
       placeholder="insira sua senha...">
     </mat-form-field>
 
-    <button [disabled]="!validaCampos()" class="full-width-button mat-elevation-z4" mat-stroked-button color="primary">Login</button>
+    <button (click)="logar()" [disabled]="!validaCampos()" class="full-width-button mat-elevation-z4" mat-stroked-button color="primary">Login</button>
 
   </form>  
 </div>
