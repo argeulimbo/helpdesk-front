@@ -1,1 +1,39 @@
-<p>tecnico-create works!</p>
+<div class="container mat-elevation-z8">
+    <form class="form">
+        <h1 class="fullWidth">Cadastrar Tecnico</h1>
+        <img src="https://i.imgur.com/HhPUEAn.png" alt="Tecnico-Create">
+
+        <section class="section">
+            <mat-radio-button class="margin">Admin</mat-radio-button>
+            <mat-radio-button class="margin">Tecnico</mat-radio-button>
+            <mat-radio-button class="margin">Cliente</mat-radio-button>
+        </section>
+
+        <p>
+            <mat-form-field appearance="fill" class="fullWidth">
+              <mat-label>Nome</mat-label>
+              <input matInput placeholder="digite o nome completo...">
+            </mat-form-field>
+
+            <mat-form-field appearance="fill" class="fullWidth">
+                <mat-label>CPF</mat-label>
+                <input matInput placeholder="informe o CPF.">
+              </mat-form-field>
+
+              <mat-form-field appearance="fill" class="fullWidth">
+                <mat-label>E-mail</mat-label>
+                <input matInput placeholder="digite um e-mail válido...">
+              </mat-form-field>
+
+              <mat-form-field appearance="fill" class="fullWidth">
+                <mat-label>Senha</mat-label>
+                <input matInput type="password" placeholder="digite sua senha...">
+              </mat-form-field>
+
+              <button mat-flat-button color="warn" class="fullWidth">Cadastrar</button>
+              <button mat-stroked-button color="warn" class="fullWidth">Cancelar</button>
+              
+        </p>
+
+    </form>
+</div>
