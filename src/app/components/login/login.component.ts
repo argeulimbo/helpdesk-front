@@ -9,6 +9,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { Credenciais } from '../../models/credenciais';
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from '../../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -35,7 +36,8 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private toastr: ToastrService,
-    private service: AuthService
+    private service: AuthService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {}
@@ -44,21 +46,13 @@ export class LoginComponent implements OnInit {
     this.service.authenticate(this.creds).subscribe(resposta => {
       const token = resposta.headers.get('Authorization')?.substring(7) ?? 'Token não encontrado!';
       this.service.sucessfulLogin(token);
+      this.router.navigate(['']);
       this.toastr.info(token);
     }, () => {
       this.toastr.error('Usuário e/ou senha inválidos');
       this.creds.senha = '';
     })
   }
-
-  // Este abaixo funciona
-  // logar () {
-  //   this.service.authenticate(this.creds).subscribe(resposta => {
-  //     this.toastr.info(resposta.headers.get('Authorization') ?? 'Token não encontrado!')
-  //   }, () => {
-  //     this.toastr.error('Usuário e/ou senha inválido!');
-  //   })
-  // }
 
   validaCampos(): boolean {
     return this.email.valid && this.senha.valid;

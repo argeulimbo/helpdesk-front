@@ -25,18 +25,14 @@ export class AuthService {
     localStorage.setItem('token', authToken);
   }
 
-  // Video Aula Metodo
-  // isAuthenticated() {
-  //   let token = localStorage.getItem('token');
-  //   if (token != null) {
-  //     return !this.jwtService.isTokenExpired(token);
-  //   }
-  //   return false;
-  // }
-
   isAuthenticated() {
-    const token = localStorage.getItem('token');
-    return !!token
+    let token = localStorage.getItem('token');
+    if (token != null) {
+      return true;
+    }
+    else {
+      return false;
+    }
   }
 
   logout() {
