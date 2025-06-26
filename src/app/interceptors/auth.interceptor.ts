@@ -6,7 +6,7 @@ import { Observable } from "rxjs";
 export const authInterceptor: HttpInterceptorFn = (req: HttpRequest<any>, next: HttpHandlerFn): Observable<HttpEvent<any>> => {
   const authService = inject(AuthService);
 
-  let token = authService.isAuthenticated() ? localStorage.getItem('token') : null;
+  const token = authService.isAuthenticated() ? localStorage.getItem('token') : null;
 
   if (token) {
     const clonedReq = req.clone({
