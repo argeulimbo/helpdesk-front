@@ -9,6 +9,8 @@ import { Router, RouterModule, RouterOutlet } from '@angular/router';
 
 import { HeaderComponent } from '../header/header.component';
 import { TecnicoListComponent } from '../tecnico/tecnico-list/tecnico-list.component';
+import { AuthService } from '../../services/auth.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-nav',
@@ -28,7 +30,10 @@ import { TecnicoListComponent } from '../tecnico/tecnico-list/tecnico-list.compo
 })
 export class NavComponent {
 
-  constructor(private router: Router) {
+  constructor(
+    private router: Router,
+    private authService: AuthService,
+    private toastr: ToastrService) {
   }
 
   ngOnInit(): void {
@@ -36,4 +41,11 @@ export class NavComponent {
       this.router.navigate(['home']);
     }
   }
+
+  logout() {
+    this.router.navigate(['login']);
+    this.authService.logout();
+    this.toastr.info('Logout realizado com sucesso', 'Logout', { timeOut: 7000 } );
+  }
+
 }
