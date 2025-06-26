@@ -1,4 +1,19 @@
 <div class="container">
+
+  <h1 class="mat-elevation-z12">Cadastro de Tecnicos</h1>
+  
+  <section>
+    <div class="class-button">
+      <button mat-raised-button color="primary" class="mat-elevation-z12">Novo</button>
+      <button mat-raised-button color="warn" class="mat-elevation-z12">Excluir</button>      
+    </div>
+  </section>
+
+  <mat-form-field>
+    <mat-label>Filter</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
+  </mat-form-field>  
+
   <div class="mat-elevation-z8">
   <table mat-table [dataSource]="dataSource">
 
