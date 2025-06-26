@@ -1,16 +1,15 @@
-import { Injectable } from '@angular/core';
+import { Injectable, PLATFORM_ID, inject } from '@angular/core';
 import { Credenciais } from '../models/credenciais';
+import { isPlatformBrowser } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
-import { JwtHelperService } from '@auth0/angular-jwt';
-
 import { API_CONFIG } from '../config/api.config';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-
-  jwtService: JwtHelperService = new JwtHelperService();
+  
+  private platformId = inject(PLATFORM_ID);
 
   constructor(private http: HttpClient) { }
 
@@ -18,15 +17,21 @@ export class AuthService {
     return this.http.post(`${API_CONFIG.baseUrl}/login`, creds, {
       observe : 'response',
       responseType : 'text'
-    })
+    });
   }
 
   sucessfulLogin(authToken: string) {
-    localStorage.setItem('token', authToken);
+    if (isPlatformBrowser(this.platformId)) {
+      localStorage.setItem('token', authToken);
+    }
   }
 
-  isAuthenticated() {
-    let token = localStorage.getItem('token');
+  isAuthenticated(): boolean {
+    let token: string | null = null;
+    if (isPlatformBrowser(this.platformId)) {
+      token = localStorage.getItem('token');
+    }
+
     if (token != null) {
       return true;
     }
@@ -36,6 +41,28 @@ export class AuthService {
   }
 
   logout() {
-    localStorage.clear();
+    if (isPlatformBrowser(this.platformId)) {
+      localStorage.clear();
+    }
   }
+
+  // métodos sem verificar se executa em navegador
+
+  // sucessfulLogin(authToken: string) {
+  //   localStorage.setItem('token', authToken);
+  // }
+
+  // isAuthenticated() {
+  //   let token = localStorage.getItem('token');
+  //   if (token != null) {
+  //     return true;
+  //   }
+  //   else {
+  //     return false;
+  //   }
+  // }
+
+  // logout() {
+  //   localStorage.clear();
+  // }
 }
