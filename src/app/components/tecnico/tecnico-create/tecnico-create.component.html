@@ -11,26 +11,38 @@
         
             <mat-form-field appearance="fill" class="fullWidth">
               <mat-label>Nome</mat-label>
-              <input matInput placeholder="digite o nome completo...">
+              <input 
+              [formControl]="nome"
+              required
+              matInput placeholder="digite o nome completo...">
             </mat-form-field>
 
             <mat-form-field appearance="fill" class="fullWidth">
                 <mat-label>CPF</mat-label>
-                <input matInput placeholder="informe o CPF.">
+                <input
+                [formControl]="cpf" 
+                required
+                matInput placeholder="informe o CPF.">
               </mat-form-field>
 
               <mat-form-field appearance="fill" class="fullWidth">
                 <mat-label>E-mail</mat-label>
-                <input matInput placeholder="digite um e-mail válido...">
+                <input
+                [formControl]="email"
+                required                
+                matInput placeholder="digite um e-mail válido...">
               </mat-form-field>
 
               <mat-form-field appearance="fill" class="fullWidth">
                 <mat-label>Senha</mat-label>
-                <input matInput type="password" placeholder="digite sua senha...">
+                <input 
+                [formControl]="senha"
+                required
+                matInput type="password" placeholder="digite sua senha...">
               </mat-form-field>
 
               <div class="findButton">
-                <button mat-flat-button color="primary">Cadastrar</button>                
+                <button [disabled]="!validaCampos()" mat-flat-button color="primary">Cadastrar</button>                
                 <button mat-stroked-button (click)="cancelar()" color="primary">Cancelar</button>
               </div>
     </form>

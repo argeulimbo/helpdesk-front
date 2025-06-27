@@ -8,6 +8,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatButtonModule } from '@angular/material/button';
 import { Router } from '@angular/router';
+import { FormControl, Validators, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-tecnico-create',
@@ -20,16 +21,29 @@ import { Router } from '@angular/router';
     MatIconModule,
     MatInputModule,
     MatDividerModule,
-    MatButtonModule
+    MatButtonModule,
+    ReactiveFormsModule
   ],
   templateUrl: './tecnico-create.component.html',
   styleUrl: './tecnico-create.component.css'
 })
 export class TecnicoCreateComponent {
 
+  nome: FormControl = new FormControl(null, Validators.minLength(3));
+  cpf: FormControl = new FormControl(null, Validators.required);
+  email: FormControl = new FormControl(null, Validators.email);
+  senha: FormControl = new FormControl(null, Validators.minLength(3));
+  
   constructor(private router: Router) { }
 
   cancelar() {
     this.router.navigate(['/tecnicos']);
+  }
+
+  validaCampos(): boolean { 
+    return this.nome.valid 
+    && this.cpf.valid 
+    && this.email.valid 
+    && this.senha.valid;
   }
 }
