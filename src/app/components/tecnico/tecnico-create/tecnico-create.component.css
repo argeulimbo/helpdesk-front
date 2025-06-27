@@ -14,12 +14,9 @@ p {
     opacity: 0.6;
 }
 
-button { 
-    margin-top: 1rem;
-}
-
 img { 
-    height: 15rem;
+    height: 10rem;
+    width: 10rem;
     margin: auto;
     display: block;
     
@@ -45,3 +42,9 @@ img {
     display: flex;
     justify-content: space-around;
 }
+
+.findButton {
+    display: flex;
+    justify-content: space-around;
+}
+

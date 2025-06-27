@@ -7,6 +7,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatButtonModule } from '@angular/material/button';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-tecnico-create',
@@ -26,4 +27,9 @@ import { MatButtonModule } from '@angular/material/button';
 })
 export class TecnicoCreateComponent {
 
+  constructor(private router: Router) { }
+
+  cancelar() {
+    this.router.navigate(['/tecnicos']);
+  }
 }

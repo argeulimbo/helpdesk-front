@@ -4,11 +4,11 @@
         <img src="https://i.imgur.com/HhPUEAn.png" alt="Tecnico-Create">
 
         <section class="section">
-            <mat-radio-button class="margin">Admin</mat-radio-button>
-            <mat-radio-button class="margin">Tecnico</mat-radio-button>
-            <mat-radio-button class="margin">Cliente</mat-radio-button>
+            <mat-checkbox class="margin" color="primary">Admin</mat-checkbox>
+            <mat-checkbox class="margin" color="primary">Tecnico</mat-checkbox>
+            <mat-checkbox class="margin" color="primary">Cliente</mat-checkbox>
         </section>
-
+        
             <mat-form-field appearance="fill" class="fullWidth">
               <mat-label>Nome</mat-label>
               <input matInput placeholder="digite o nome completo...">
@@ -29,9 +29,10 @@
                 <input matInput type="password" placeholder="digite sua senha...">
               </mat-form-field>
 
-              <button mat-flat-button color="warn" class="fullWidth">Cadastrar</button>
-              <button mat-stroked-button color="warn" class="fullWidth">Cancelar</button>
+              <div class="findButton">
+                <button mat-flat-button color="primary">Cadastrar</button>                
+                <button mat-stroked-button (click)="cancelar()" color="primary">Cancelar</button>
+              </div>
     </form>
-
     <p>Desenvolvido por Argeu Souza</p>
 </div>
