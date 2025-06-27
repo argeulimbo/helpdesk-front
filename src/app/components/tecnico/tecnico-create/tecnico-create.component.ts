@@ -9,6 +9,7 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatButtonModule } from '@angular/material/button';
 import { Router } from '@angular/router';
 import { FormControl, Validators, ReactiveFormsModule } from '@angular/forms';
+import { NgxMaskDirective, NgxMaskPipe } from 'ngx-mask';
 
 @Component({
   selector: 'app-tecnico-create',
@@ -22,7 +23,9 @@ import { FormControl, Validators, ReactiveFormsModule } from '@angular/forms';
     MatInputModule,
     MatDividerModule,
     MatButtonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxMaskDirective,
+    NgxMaskPipe
   ],
   templateUrl: './tecnico-create.component.html',
   styleUrl: './tecnico-create.component.css'
