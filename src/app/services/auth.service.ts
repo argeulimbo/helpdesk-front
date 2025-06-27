@@ -31,7 +31,6 @@ export class AuthService {
     if (isPlatformBrowser(this.platformId)) {
       token = localStorage.getItem('token');
     }
-
     if (token != null) {
       return true;
     }
@@ -45,24 +44,4 @@ export class AuthService {
       localStorage.clear();
     }
   }
-
-  // métodos sem verificar se executa em navegador
-
-  // sucessfulLogin(authToken: string) {
-  //   localStorage.setItem('token', authToken);
-  // }
-
-  // isAuthenticated() {
-  //   let token = localStorage.getItem('token');
-  //   if (token != null) {
-  //     return true;
-  //   }
-  //   else {
-  //     return false;
-  //   }
-  // }
-
-  // logout() {
-  //   localStorage.clear();
-  // }
 }

@@ -47,7 +47,8 @@ export class LoginComponent implements OnInit {
       const token = resposta.headers.get('Authorization')?.substring(7) ?? 'Token não encontrado!';
       this.service.sucessfulLogin(token);
       this.router.navigate(['']);
-      this.toastr.info(token);
+      this.toastr.info('Usuário Autenticado!');
+      this.toastr.info('Token: ' + token);
     }, () => {
       this.toastr.error('Usuário e/ou senha inválidos');
       this.creds.senha = '';
