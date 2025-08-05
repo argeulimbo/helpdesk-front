@@ -70,18 +70,22 @@ export class TecnicoCreateComponent {
     this.service.create(this.tecnico).subscribe((resposta) => {
       this.toast.success('Técnico cadastrado com sucesso!', 'Cadastro');
     }, ex => {
-      console.log(ex);
+      if(ex.error.errors){
+        ex.error.errors.array.forEach((element: any) => {
+          this.toast.error(element.message);
+        });
+      } else {
+        this.toast.error(ex.error.message);
+      }
     })
   }
 
   addPerfil(perfil: any): void {
     if(this.tecnico.perfis.includes(perfil)){
       this.tecnico.perfis.splice(this.tecnico.perfis.indexOf(perfil), 1);
-      console.log(this.tecnico.perfis);
     }
     else {
       this.tecnico.perfis.push(perfil);
-       console.log(this.tecnico.perfis);
     }
   }
 

@@ -51,7 +51,7 @@
               </mat-form-field>
 
               <div class="findButton">
-                <button [disabled]="!validaCampos()" mat-flat-button color="primary">Cadastrar</button>                
+                <button (click)="create()" [disabled]="!validaCampos()" mat-flat-button color="primary">Cadastrar</button>                
                 <button mat-stroked-button (click)="cancelar()" color="primary">Cancelar</button>
               </div>
     </form>
