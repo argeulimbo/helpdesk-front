@@ -4,9 +4,9 @@
         <img src="https://i.imgur.com/HhPUEAn.png" alt="Tecnico-Create">
 
         <section class="section">
-            <mat-checkbox class="margin" color="primary">Admin</mat-checkbox>
-            <mat-checkbox class="margin" color="primary">Tecnico</mat-checkbox>
-            <mat-checkbox class="margin" color="primary">Cliente</mat-checkbox>
+            <mat-checkbox (click)="addPerfil(0)" class="margin" color="primary">Admin</mat-checkbox>
+            <mat-checkbox (click)="addPerfil(1)" class="margin" color="primary">Tecnico</mat-checkbox>
+            <mat-checkbox (click)="addPerfil(2)" class="margin" color="primary">Cliente</mat-checkbox>
         </section>
         
             <mat-form-field appearance="fill" class="fullWidth">
