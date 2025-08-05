@@ -27,9 +27,8 @@ import { ToastrService } from 'ngx-toastr';
     MatDividerModule,
     MatButtonModule,
     ReactiveFormsModule,
-    NgxMaskDirective,
-    NgxMaskPipe
-  ],
+    NgxMaskDirective
+],
   templateUrl: './tecnico-create.component.html',
   styleUrl: './tecnico-create.component.css'
 })
@@ -73,6 +72,7 @@ export class TecnicoCreateComponent {
       if(ex.error.errors){
         ex.error.errors.array.forEach((element: any) => {
           this.toast.error(element.message);
+          this.router.navigate(['tecnicos']);
         });
       } else {
         this.toast.error(ex.error.message);
