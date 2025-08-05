@@ -10,6 +10,9 @@ import { MatButtonModule } from '@angular/material/button';
 import { Router } from '@angular/router';
 import { FormControl, Validators, ReactiveFormsModule } from '@angular/forms';
 import { NgxMaskDirective, NgxMaskPipe } from 'ngx-mask';
+import { TecnicoService } from '../../../services/tecnico.service';
+import { Tecnico } from '../../../models/tecnico';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-tecnico-create',
@@ -32,12 +35,25 @@ import { NgxMaskDirective, NgxMaskPipe } from 'ngx-mask';
 })
 export class TecnicoCreateComponent {
 
+  tecnico: Tecnico = {
+    id:           '',
+    nome:         '',
+    cpf:          '',
+    email:        '',
+    senha:        '',
+    perfis:       [],
+    dataCriacao:  ''
+  }
+
   nome: FormControl = new FormControl(null, Validators.minLength(3));
   cpf: FormControl = new FormControl(null, Validators.required);
   email: FormControl = new FormControl(null, Validators.email);
   senha: FormControl = new FormControl(null, Validators.minLength(3));
   
-  constructor(private router: Router) { }
+  constructor(private router: Router,
+              private service: TecnicoService,
+              private toast: ToastrService
+  ) { }
 
   cancelar() {
     this.router.navigate(['/tecnicos']);
@@ -48,5 +64,13 @@ export class TecnicoCreateComponent {
     && this.cpf.valid 
     && this.email.valid 
     && this.senha.valid;
+  }
+
+  create(): void {
+    this.service.create(this.tecnico).subscribe((resposta) => {
+      this.toast.success('Técnico cadastrado com sucesso!', 'Cadastro');
+    }, ex => {
+      console.log(ex);
+    })
   }
 }

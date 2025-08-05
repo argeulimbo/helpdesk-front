@@ -12,6 +12,8 @@
             <mat-form-field appearance="fill" class="fullWidth">
               <mat-label>Nome</mat-label>
               <input 
+              [(ngModel)]=""tecnico.nome"
+              name="nome"
               [formControl]="nome"
               required
               matInput placeholder="digite o nome completo...">
@@ -20,6 +22,8 @@
             <mat-form-field appearance="fill" class="fullWidth">
                 <mat-label>CPF</mat-label>
                 <input
+                [(ngModel)]=""tecnico.cpf"
+                name="cpf"
                 [formControl]="cpf" 
                 required
                 mask="000.000.000-00"
@@ -29,6 +33,8 @@
               <mat-form-field appearance="fill" class="fullWidth">
                 <mat-label>E-mail</mat-label>
                 <input
+                [(ngModel)]=""tecnico.email"
+                name="email"
                 [formControl]="email"
                 required                
                 matInput placeholder="digite um e-mail válido...">
@@ -36,7 +42,9 @@
 
               <mat-form-field appearance="fill" class="fullWidth">
                 <mat-label>Senha</mat-label>
-                <input 
+                <input
+                [(ngModel)]=""tecnico.senha"
+                name="senha" 
                 [formControl]="senha"
                 required
                 matInput type="password" placeholder="digite sua senha...">
