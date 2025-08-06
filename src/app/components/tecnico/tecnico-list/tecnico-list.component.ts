@@ -6,6 +6,7 @@ import { MatInput, MatInputModule } from '@angular/material/input';
 import { MatPaginator } from '@angular/material/paginator';
 import { Tecnico } from '../../../models/tecnico';
 import { TecnicoService } from '../../../services/tecnico.service';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-tecnico-list',
@@ -16,7 +17,8 @@ import { TecnicoService } from '../../../services/tecnico.service';
              MatLabel,
              MatFormField,
              MatFormFieldModule,
-             MatInputModule
+             MatInputModule,
+             MatIconModule
   ],
   templateUrl: './tecnico-list.component.html',
   styleUrl: './tecnico-list.component.css'

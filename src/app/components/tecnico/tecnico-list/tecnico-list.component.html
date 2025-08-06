@@ -1,3 +1,7 @@
+<head>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
 <div class="container">
 
   <h1 class="mat-elevation-z12">Cadastro de Tecnicos</h1>
@@ -39,7 +43,14 @@
 
     <ng-container matColumnDef="acoes">
       <th mat-header-cell *matHeaderCellDef> Ações </th>
-      <td mat-cell *matCellDef="let element"> </td>
+      <td mat-cell *matCellDef="let element">
+         <a routerLink="">
+          <i class="material-icons edit">edit</i>
+         </a>
+         <a routerLink="">
+          <i class="material-icons delete">delete</i>
+         </a>
+      </td>
     </ng-container>    
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
