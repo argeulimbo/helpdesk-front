@@ -19,7 +19,7 @@ export const routes: Routes = [
 
             { path: 'tecnicos', component: TecnicoListComponent },
             { path: 'tecnicos/create', component: TecnicoCreateComponent },
-            { path: 'tecnicos/update', component: TecnicoUpdateComponent }
+            { path: 'tecnicos/update/:id', component: TecnicoUpdateComponent }
         ]
     }
 ]
