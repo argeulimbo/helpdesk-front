@@ -7,7 +7,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatButtonModule } from '@angular/material/button';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { FormControl, Validators, ReactiveFormsModule } from '@angular/forms';
 import { NgxMaskDirective, NgxMaskPipe } from 'ngx-mask';
 import { TecnicoService } from '../../../services/tecnico.service';
@@ -51,6 +51,7 @@ export class TecnicoUpdateComponent {
     senha: FormControl = new FormControl(null, Validators.minLength(3));
     
     constructor(private router: Router,
+                private route: ActivatedRoute,
                 private service: TecnicoService,
                 private toast: ToastrService
     ) { }
@@ -64,6 +65,12 @@ export class TecnicoUpdateComponent {
       && this.cpf.valid 
       && this.email.valid 
       && this.senha.valid;
+    }
+
+    findById(): void {
+      this.service.findById(this.tecnico.id).subscribe((resposta) => {
+        this.tecnico = resposta;
+      })
     }
   
     update(): void {
