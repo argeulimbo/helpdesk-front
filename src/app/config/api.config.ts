@@ -2,4 +2,8 @@ import { text } from "stream/consumers"
 
 export const API_CONFIG = {
     baseUrl : 'http://localhost:8080'
+
+    /* Deploy Heroku
+    baseUrl : 'https://helpdesk-springboot-angular.herokuapp.com' 
+    */
 }
