@@ -1,1 +1,50 @@
-<p>tecnico-delete works!</p>
+<div class="container mat-elevation-z8">
+    <form class="form">
+        <h1 class="fullWidth">Deletar</h1>
+        <img src="https://i.imgur.com/HhPUEAn.png" alt="Tecnico-Create">
+
+        <section class="section">
+            <mat-checkbox [disabled]="true" class="margin" color="primary">Admin</mat-checkbox>
+            <mat-checkbox [disabled]="true" class="margin" color="primary">Tecnico</mat-checkbox>
+            <mat-checkbox [disabled]="true" class="margin" color="primary">Cliente</mat-checkbox>
+        </section>
+        
+            <mat-form-field appearance="fill" class="fullWidth">
+              <mat-label>Nome</mat-label>
+              <input 
+              [(ngModel)]="tecnico.nome"
+              name="nome"
+              [disabled]="true">
+            </mat-form-field>
+
+            <mat-form-field appearance="fill" class="fullWidth">
+                <mat-label>CPF</mat-label>
+                <input
+                [(ngModel)]="tecnico.cpf"
+                name="cpf"
+                [disabled]="true">
+              </mat-form-field>
+
+              <mat-form-field appearance="fill" class="fullWidth">
+                <mat-label>E-mail</mat-label>
+                <input
+                [(ngModel)]="tecnico.email"
+                name="email"
+                [disabled]="true">
+              </mat-form-field>
+
+              <mat-form-field appearance="fill" class="fullWidth">
+                <mat-label>Senha</mat-label>
+                <input
+                [(ngModel)]="tecnico.senha"
+                name="senha"
+                [disabled]="true">
+              </mat-form-field>
+
+              <div class="findButton">
+                <button (click)="delete()" mat-flat-button color="primary">Deletar</button>                
+                <button mat-stroked-button (click)="cancelar()" color="primary">Cancelar</button>
+              </div>
+    </form>
+    <p>Desenvolvido por Argeu Souza</p>
+</div>
