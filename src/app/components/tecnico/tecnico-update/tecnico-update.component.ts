@@ -59,6 +59,11 @@ export class TecnicoUpdateComponent {
     cancelar() {
       this.router.navigate(['/tecnicos']);
     }
+
+    ngOnInit(): void {
+      this.tecnico.id = this.route.snapshot.paramMap.get('id')!;
+      this.findById();
+    }
   
     validaCampos(): boolean { 
       return this.nome.valid 
@@ -69,13 +74,14 @@ export class TecnicoUpdateComponent {
 
     findById(): void {
       this.service.findById(this.tecnico.id).subscribe((resposta) => {
+        resposta.perfis = [];
         this.tecnico = resposta;
       })
     }
   
     update(): void {
-      this.service.create(this.tecnico).subscribe((resposta) => {
-        this.toast.success('Técnico cadastrado com sucesso!', 'Cadastro');
+      this.service.update(this.tecnico).subscribe((resposta) => {
+        this.toast.success('Atualizado com sucesso!', 'Update');
       }, ex => {
         if(ex.error.errors){
           ex.error.errors.array.forEach((element: any) => {
