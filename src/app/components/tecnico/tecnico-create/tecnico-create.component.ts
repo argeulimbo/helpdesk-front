@@ -78,7 +78,6 @@ export class TecnicoCreateComponent {
         this.toast.error(ex.error.message);
       }
     })
-    this.router.navigate(['/tecnicos']);    
   }
 
   addPerfil(perfil: any): void {
