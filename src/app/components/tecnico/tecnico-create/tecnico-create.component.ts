@@ -67,17 +67,18 @@ export class TecnicoCreateComponent {
 
   create(): void {
     this.service.create(this.tecnico).subscribe((resposta) => {
-      this.toast.success('Técnico cadastrado com sucesso!', 'Cadastro');
+      this.toast.success('Cadastrado com sucesso!', 'Cadastro');
+      this.router.navigate(['/tecnicos']);
     }, ex => {
       if(ex.error.errors){
-        ex.error.errors.array.forEach((element: any) => {
+        ex.error.errors.forEach((element: any) => {
           this.toast.error(element.message);
-          this.router.navigate(['tecnicos']);
         });
       } else {
         this.toast.error(ex.error.message);
       }
     })
+    this.router.navigate(['/tecnicos']);    
   }
 
   addPerfil(perfil: any): void {

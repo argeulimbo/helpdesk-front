@@ -17,7 +17,18 @@ import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-tecnico-delete',
   standalone: true,
-  imports: [],
+  imports: [
+    MatCheckboxModule,
+    MatCardModule,
+    MatRadioModule,
+    MatFormFieldModule,
+    MatIconModule,
+    MatInputModule,
+    MatDividerModule,
+    MatButtonModule,
+    ReactiveFormsModule,
+    NgxMaskDirective
+  ],
   templateUrl: './tecnico-delete.component.html',
   styleUrl: './tecnico-delete.component.css'
 })
@@ -54,19 +65,21 @@ export class TecnicoDeleteComponent {
           this.tecnico = resposta;
         })
       }
-    
+
       delete(): void {
-        this.service.delete(this.tecnico.id).subscribe((resposta) => {
+        this.service.delete(this.tecnico.id).subscribe(() => {
           this.toast.success('Deletado com sucesso!', 'Delete');
+          this.router.navigate(['/tecnicos']);
         }, ex => {
           if(ex.error.errors){
-            ex.error.errors.array.forEach((element: any) => {
+            ex.error.errors.forEach((element: any) => {
               this.toast.error(element.message);
-              this.router.navigate(['tecnicos']);
             });
-          } else {
-            this.toast.error(ex.error.message);
-          }
-        })
-      }
+        } else {
+            this.toast.error(ex.error.message); 
+        }
+      })
+      this.router.navigate(['/tecnicos']);
+    }
+    
 }
