@@ -27,7 +27,6 @@ import { ToastrService } from 'ngx-toastr';
     MatDividerModule,
     MatButtonModule,
     ReactiveFormsModule,
-    NgxMaskDirective
   ],
   templateUrl: './cliente-delete.component.html',
   styleUrl: './cliente-delete.component.css'
