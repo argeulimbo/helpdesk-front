@@ -67,7 +67,7 @@ export class ClienteCreateComponent {
 
   create(): void {
     this.service.create(this.cliente).subscribe((resposta) => {
-      this.toast.success('Cadastrado com sucesso!', 'Cadastro');
+      this.toast.success('Cliente cadastrado com sucesso!', 'Cadastro');
       this.router.navigate(['/clientes']);
     }, ex => {
       if(ex.error.errors){

@@ -1,45 +1,35 @@
 <div class="container mat-elevation-z8">
     <form class="form">
-        <h1 class="fullWidth">Deletar</h1>
+        <h1 class="fullWidth">Excluir Cadastro de Cliente</h1>
         <img src="https://i.imgur.com/HhPUEAn.png" alt="Cliente-Create">
 
         <section class="section">
             <mat-checkbox [disabled]="true" class="margin" color="primary">Admin</mat-checkbox>
-            <mat-checkbox [disabled]="true" class="margin" color="primary">Cliente</mat-checkbox>
-            <mat-checkbox [disabled]="true" class="margin" color="primary">Cliente</mat-checkbox>
+            <mat-checkbox [disabled]="true" [checked]="true" class="margin" color="primary">Cliente</mat-checkbox>
         </section>
         
             <mat-form-field appearance="fill" class="fullWidth">
               <mat-label>Nome</mat-label>
-              <input 
-              name="nome"
-              [disabled]="true">
+              <input matInput name="nome" [value]="cliente.nome" [disabled]="true">
             </mat-form-field>
 
             <mat-form-field appearance="fill" class="fullWidth">
                 <mat-label>CPF</mat-label>
-                <input
-                name="cpf"
-                [disabled]="true">
+                <input matInput name="cpf" [value]="cliente.cpf" [disabled]="true">
               </mat-form-field>
 
               <mat-form-field appearance="fill" class="fullWidth">
                 <mat-label>E-mail</mat-label>
-                <input
-                name="email"
-                [disabled]="true">
+               <input matInput name="email" [value]="cliente.email" [disabled]="true">
               </mat-form-field>
 
               <mat-form-field appearance="fill" class="fullWidth">
                 <mat-label>Senha</mat-label>
-                <input
-                name="senha"
-                type="password"
-                [disabled]="true">
+                <input matInput name="senha" type="password" [value]="cliente.senha" [disabled]="true">
               </mat-form-field>
 
               <div class="findButton">
-                <button (click)="delete()" mat-flat-button color="primary">Deletar</button>                
+                <button type="button" (click)="delete()" mat-flat-button color="primary">Excluir</button>                
                 <button mat-stroked-button (click)="cancelar()" color="primary">Cancelar</button>
               </div>
     </form>
