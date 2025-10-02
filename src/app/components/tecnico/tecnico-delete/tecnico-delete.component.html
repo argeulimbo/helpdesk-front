@@ -1,45 +1,34 @@
 <div class="container mat-elevation-z8">
     <form class="form">
-        <h1 class="fullWidth">Deletar</h1>
-        <img src="https://i.imgur.com/HhPUEAn.png" alt="Tecnico-Create">
+        <h1 class="fullWidth">Excluir Cadastro de Técnico</h1>
+        <img src="https://i.imgur.com/HhPUEAn.png" alt="Tecnico-Delete">
 
         <section class="section">
             <mat-checkbox [disabled]="true" class="margin" color="primary">Admin</mat-checkbox>
-            <mat-checkbox [disabled]="true" class="margin" color="primary">Tecnico</mat-checkbox>
-            <mat-checkbox [disabled]="true" class="margin" color="primary">Cliente</mat-checkbox>
-        </section>
-        
+            <mat-checkbox [checked]="true" class="margin" color="primary">Tecnico</mat-checkbox>
+        </section>        
             <mat-form-field appearance="fill" class="fullWidth">
               <mat-label>Nome</mat-label>
-              <input 
-              name="nome"
-              [disabled]="true">
+              <input matInput name="nome" [disabled]="true" [value]="tecnico.nome">
             </mat-form-field>
 
             <mat-form-field appearance="fill" class="fullWidth">
                 <mat-label>CPF</mat-label>
-                <input
-                name="cpf"
-                [disabled]="true">
+                <input matInput name="cpf" [disabled]="true" [value]="tecnico.cpf">
               </mat-form-field>
 
               <mat-form-field appearance="fill" class="fullWidth">
                 <mat-label>E-mail</mat-label>
-                <input
-                name="email"
-                [disabled]="true">
+                <input matInput name="email" [disabled]="true" [value]="tecnico.email">
               </mat-form-field>
 
               <mat-form-field appearance="fill" class="fullWidth">
                 <mat-label>Senha</mat-label>
-                <input
-                name="senha"
-                type="password"
-                [disabled]="true">
+                <input matInput name="senha" type="password" [disabled]="true" [value]="tecnico.senha">
               </mat-form-field>
 
               <div class="findButton">
-                <button (click)="delete()" mat-flat-button color="primary">Deletar</button>                
+                <button type="button" (click)="delete()" mat-flat-button color="primary">Deletar</button>                
                 <button mat-stroked-button (click)="cancelar()" color="primary">Cancelar</button>
               </div>
     </form>

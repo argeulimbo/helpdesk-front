@@ -81,7 +81,7 @@ export class TecnicoUpdateComponent {
   
     update(): void {
       this.service.update(this.tecnico).subscribe((resposta) => {
-        this.toast.success('Atualizado com sucesso!', 'Update');
+        this.toast.success('Técnico atualizado com sucesso!', 'Update');
         this.router.navigate(['/tecnicos']);
       }, ex => {
         if(ex.error.errors){

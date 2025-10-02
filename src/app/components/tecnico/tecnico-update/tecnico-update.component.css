@@ -6,6 +6,8 @@ h1 {
     text-align: center;
     font-size: 1.6rem;
     border-radius: 1rem;
+    color: rgb(46, 34, 34);
+    opacity: 0.9;
 }
 
 p {
