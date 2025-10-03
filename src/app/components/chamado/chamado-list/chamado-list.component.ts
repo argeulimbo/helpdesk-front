@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { MatLabel, MatFormField, MatFormFieldModule } from '@angular/material/form-field';
@@ -23,11 +23,29 @@ import { MatIconModule } from '@angular/material/icon';
   templateUrl: './chamado-list.component.html',
   styleUrl: './chamado-list.component.css'
 })
-export class ChamadoListComponent {
+export class ChamadoListComponent implements OnInit {
 
-  ELEMENT_DATA: Chamado[] = []
+  // ELEMENT_DATA: Chamado[] = [
+  //   {
+  //     id:                                  1,
+  //     dataAbertura:             '21/06/2021',
+  //     dataFechamento:           '21/06/2021',
+  //     prioridade:                    'BAIXA',
+  //     status:                    'ANDAMENTO',
+  //     titulo:                    'Chamado 1',
+  //     descricao:    'Descrição do chamado 1',
+  //     tecnico:                             1,
+  //     cliente:                             6,
+  //     nomeCliente:            'Valdir Cezar',
+  //     nomeTecnico:         'Albert Einstein',
+  //   }
+  // ]
 
-  displayedColumns: string[] = ['id', 'dataAbertura', 'dataFechamento', 'prioridade', 'status', 'titulo', 'descricao', 'tecnico', 'cliente', 'nomeCliente', 'nomeTecnico'];
+  ELEMENT_DATA: Chamado[] = [
+                              
+  ];
+
+  displayedColumns: string[] = ['id', 'titulo', 'cliente', 'dataAbertura', 'status', 'prioridade', 'acoes'];
   dataSource = new MatTableDataSource<Chamado>(this.ELEMENT_DATA);
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
