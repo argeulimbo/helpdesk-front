@@ -21,8 +21,7 @@ import { ToastrService } from 'ngx-toastr';
     MatIconModule,
     RouterOutlet,
     RouterModule,
-    HeaderComponent,
-    TecnicoListComponent
+    HeaderComponent
   ],
   templateUrl: './nav.component.html',
   styleUrl: './nav.component.css',
