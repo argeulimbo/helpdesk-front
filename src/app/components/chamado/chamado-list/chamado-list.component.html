@@ -4,9 +4,9 @@
 
 <div class="container">
 
-  <h1 class="mat-elevation-z12">Painel de Pendências</h1>
-  
-  <section>
+  <h1 class="mat-elevation-z12" >Painel de Pendências</h1>
+
+<section>
     <div class="class-button">
       <button routerLink="create" mat-raised-button color="primary" class="mat-elevation-z12">Novo</button>
       <button mat-raised-button color="warn" class="mat-elevation-z12">Excluir</button>      
@@ -18,7 +18,7 @@
     <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
   </mat-form-field>  
 
-  <div class="mat-elevation-z8">
+  <div *ngIf="dataSource" class="mat-elevation-z8">
   <table mat-table [dataSource]="dataSource">
 
     <ng-container matColumnDef="id">
@@ -54,10 +54,10 @@
     <ng-container matColumnDef="acoes">
       <th mat-header-cell *matHeaderCellDef> Ações </th>
       <td mat-cell *matCellDef="let element">
-         <a routerLink="">
+         <a routerLink="update/{{element.id }}">
           <i class="material-icons edit">edit</i>
          </a>
-         <a routerLink="">
+         <a routerLink="delete/{{element.id}}">
           <i class="material-icons delete">visibility</i>
          </a>
       </td>
@@ -67,7 +67,7 @@
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
 
-  <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+  <mat-paginator [pageSizeOptions]="[10, 15, 20]"
                  showFirstLastButtons
                  aria-label="Select page of periodic elements">
   </mat-paginator>
