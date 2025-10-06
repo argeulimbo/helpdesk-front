@@ -28,9 +28,11 @@ import { Chamado } from '../../../models/chamado';
 })
 export class ChamadoListComponent {
 
-  ELEMENT_DATA: Chamado[] = []
+  // ELEMENT_DATA: Chamado[] = []
 
-  displayedColumns: string[] = ['idChamado', 'tituloChamado', 'statusChamado', 'prioridadeChamado', 'tecnicoChamado', 'clienteChamado', 'acoes'];
+  ELEMENT_DATA: Chamado[] = [ ];
+
+  displayedColumns: string[] = ['id', 'titulo', 'cliente', 'dataAbertura', 'prioridade', 'status', 'acoes'];
   dataSource = new MatTableDataSource<Chamado>(this.ELEMENT_DATA);
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
