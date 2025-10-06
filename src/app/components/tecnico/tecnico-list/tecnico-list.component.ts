@@ -18,7 +18,8 @@ import { MatIconModule } from '@angular/material/icon';
              MatFormField,
              MatFormFieldModule,
              MatInputModule,
-             MatIconModule
+             MatIconModule,
+             MatInput
   ],
   templateUrl: './tecnico-list.component.html',
   styleUrl: './tecnico-list.component.css'
