@@ -69,8 +69,10 @@ export class ChamadoListComponent {
       return 'ABERTO'
     } else if (status == '1') {
       return 'ANDAMENTO'
-    } else {
+    } else if (status == '2') {
       return 'ENCERRADO'
+    } else {
+      throw new Error('Status inválido');
     }
   }
 
@@ -111,6 +113,5 @@ export class ChamadoListComponent {
     this.dataSource = new MatTableDataSource<Chamado>(this.FILTERED_DATA);
     this.dataSource.paginator = this.paginator;
   }
-
 
 }
