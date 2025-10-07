@@ -5,16 +5,20 @@ import { NavComponent } from './components/nav/nav.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { authGuard } from './auth/auth.guard';
-import { TecnicoListComponent } from './components/tecnico/tecnico-list/tecnico-list.component';
-import { ClienteListComponent } from './components/cliente/cliente-list/cliente-list.component';
+
+
 import { TecnicoCreateComponent } from './components/tecnico/tecnico-create/tecnico-create.component';
+import { TecnicoListComponent } from './components/tecnico/tecnico-list/tecnico-list.component';
 import { TecnicoUpdateComponent } from './components/tecnico/tecnico-update/tecnico-update.component';
 import { TecnicoDeleteComponent } from './components/tecnico/tecnico-delete/tecnico-delete.component';
 
 import { ClienteCreateComponent } from './components/cliente/cliente-create/cliente-create.component';
+import { ClienteListComponent } from './components/cliente/cliente-list/cliente-list.component';
 import { ClienteUpdateComponent } from './components/cliente/cliente-update/cliente-update.component';
 import { ClienteDeleteComponent } from './components/cliente/cliente-delete/cliente-delete.component';
+
 import { ChamadoListComponent } from './components/chamado/chamado-list/chamado-list.component';
+import { ChamadoCreateComponent } from './components/chamado/chamado-create/chamado-create.component';
 
 export const routes: Routes = [
     { path: 'login', component: LoginComponent },
@@ -34,7 +38,8 @@ export const routes: Routes = [
             { path: 'clientes/update/:id', component: ClienteUpdateComponent }, 
             { path: 'clientes/delete/:id', component: ClienteDeleteComponent },
 
-            { path: 'chamados', component: ChamadoListComponent} 
+            { path: 'chamados', component: ChamadoListComponent},
+            { path: 'chamados/create', component: ChamadoCreateComponent}, 
         ]
     }
 ]
