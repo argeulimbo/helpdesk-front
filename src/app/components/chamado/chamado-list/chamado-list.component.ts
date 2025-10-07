@@ -7,6 +7,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { ChamadoService } from '../../../services/chamado.service';
 import { MatIconModule } from '@angular/material/icon';
 import { Chamado } from '../../../models/chamado';
+import { MatRadioButton, MatRadioModule } from '@angular/material/radio';
 
 @Component({
   selector: 'app-chamado-list',
@@ -21,21 +22,22 @@ import { Chamado } from '../../../models/chamado';
               MatFormFieldModule,
               MatInputModule,
               MatIconModule,
-              MatInput
+              MatInput,
+              MatRadioButton,
+              MatRadioModule
   ],
   templateUrl: './chamado-list.component.html',
   styleUrl: './chamado-list.component.css'
 })
 export class ChamadoListComponent {
 
-  // ELEMENT_DATA: Chamado[] = []
-
   ELEMENT_DATA: Chamado[] = [ ];
 
-  displayedColumns: string[] = ['id', 'titulo', 'cliente', 'dataAbertura', 'prioridade', 'status', 'acoes'];
+  displayedColumns: string[] = ['id', 'titulo', 'cliente', 'tecnico', 'dataAbertura', 'prioridade', 'status', 'acoes'];
   dataSource = new MatTableDataSource<Chamado>(this.ELEMENT_DATA);
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
+
   constructor(
     private service: ChamadoService
   ) { }
