@@ -7,6 +7,8 @@ import { MatPaginator } from '@angular/material/paginator';
 import { ChamadoService } from '../../../services/chamado.service';
 import { MatIconModule } from '@angular/material/icon';
 import { Chamado } from '../../../models/chamado';
+import { TecnicoService } from '../../../services/tecnico.service';
+import { ClienteService } from '../../../services/cliente.service';
 import { MatRadioButton, MatRadioModule } from '@angular/material/radio';
 
 @Component({
@@ -32,6 +34,7 @@ import { MatRadioButton, MatRadioModule } from '@angular/material/radio';
 export class ChamadoListComponent {
 
   ELEMENT_DATA: Chamado[] = [ ];
+  FILTERED_DATA: Chamado[] = [ ];
 
   displayedColumns: string[] = ['id', 'titulo', 'cliente', 'tecnico', 'dataAbertura', 'prioridade', 'status', 'acoes'];
   dataSource = new MatTableDataSource<Chamado>(this.ELEMENT_DATA);
@@ -39,7 +42,9 @@ export class ChamadoListComponent {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   constructor(
-    private service: ChamadoService
+    private service: ChamadoService,
+    private tecnicoService: TecnicoService,
+    private clienteService: ClienteService
   ) { }
 
   ngOnInit(): void {
@@ -58,5 +63,54 @@ export class ChamadoListComponent {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
+
+  retornaStatus(status: any): string {
+    if (status == '0') {
+      return 'ABERTO'
+    } else if (status == '1') {
+      return 'ANDAMENTO'
+    } else {
+      return 'ENCERRADO'
+    }
+  }
+
+  retornaPrioridade(prioridade: any): string {
+    if (prioridade == '0') {
+      return 'BAIXA'
+    } else if (prioridade == '1') {
+      return 'MÉDIA'
+    } else {
+      return 'ALTA'
+    }
+  }
+
+  retornaTecnico(id: any): string {
+    let nome = '';
+    this.tecnicoService.findById(id).subscribe(resposta => {
+      nome = resposta.nome;
+    })
+    return nome;
+  }
+
+  retornaCliente(id: any): string {
+    let nome = '';
+    this.clienteService.findById(id).subscribe(resposta => {
+    nome = resposta.nome;
+    })
+    return nome;
+  }
+
+  orderByStatus(status: any): void {
+    let lista: Chamado[] = [];
+    this.ELEMENT_DATA.forEach(element => {
+      if (element.status == status) {
+        lista.push(element);
+      }
+    });
+    this.FILTERED_DATA = lista;
+    this.dataSource = new MatTableDataSource<Chamado>(this.FILTERED_DATA);
+    this.dataSource.paginator = this.paginator;
+  }
+
 
 }
