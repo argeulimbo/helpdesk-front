@@ -3,34 +3,52 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=add_notes" />
-</head>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=add_notes"/>
+ </head>
 
-<div class="container mat-elevation-z8">
-            
+<div class="container mat-elevation-z8">    
     <h1 class="full-width mat-elevation-z8">
             Novo Chamado
         <span class="material-symbols-outlined" id="icon">add_notes</span>
     </h1>
-
     <img src="https://i.imgur.com/aRxzQWC.png" alt="Chamado Image" class="src">
 
-    <form class="example-form">
-        <h2 class="mat-elevation-z2" id="title">
-            Título
-            <mat-form-field class="full-width">
-                <input matInput>
-            </mat-form-field>
-        </h2>            
-        <br><br>
-
-        <mat-form-field class="example-full-width">
-        <mat-label>Descreva o chamado...</mat-label>
-            <textarea matInput placeholder="Ex. It makes me feel..."></textarea>
+    <form>
+        <mat-form-field class="full-Width" appearance="outline" id="title">
+            <mat-label>Título</mat-label>
+            <input matInput placeholder="Informe o resumo...">
         </mat-form-field>
-    </form>    
+        <mat-form-field class="full-Width" appearance="outline">
+            <mat-label>Descreva o chamado</mat-label>
+            <textarea matInput placeholder="Descreva com detalhes..."></textarea>
+        </mat-form-field>
 
-    
+     <div class="status-prioridade">
+        <mat-form-field appearance="outline"> 
+            <mat-label>Status</mat-label>                      
+                <mat-select>
+                    <mat-option value="0">Aberto</mat-option>
+                    <mat-option value="1">Andamento</mat-option>
+                    <mat-option value="2">Encerrado</mat-option>                    
+                </mat-select>
+            </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Prioridade</mat-label>
+                <mat-select>
+                    <mat-option value="0">Alta</mat-option>
+                    <mat-option value="1">Média</mat-option>
+                    <mat-option value="2">Baixa</mat-option>
+                </mat-select>
+        </mat-form-field>
+    </div>  
+
+
+
+
+
+
+    </form>
 
     
 

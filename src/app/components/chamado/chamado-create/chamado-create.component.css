@@ -12,6 +12,10 @@ h1 {
     size: 2rem;
 }
 
+textarea {
+    min-height: 6rem;
+}
+
 img {
     height: 15rem;
     width: 20rem;
@@ -24,6 +28,15 @@ img {
     margin: auto;
     padding: 1rem;
     border-radius: 2rem;
+}
+
+.status-prioridade {
+    display: flex;
+    justify-content: space-between;
+}
+
+.status-prioridade mat-form-field {
+    width: 49%;
 }
 
 .full-Width {
@@ -47,11 +60,7 @@ img {
 }
 
 #title {
-    text-align: start;
-    font-weight: 300;
-    padding-left: 0.5rem;
-    font-size: 1.3rem;
-    border: none;
-    border-radius: 1.5rem;
-    size: 2rem;
+    font-size: 1rem;
+    height: 4rem;
+    width: 100%;
 }
