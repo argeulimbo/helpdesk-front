@@ -14,16 +14,7 @@
     <img src="https://i.imgur.com/aRxzQWC.png" alt="Chamado Image" class="src">
 
     <form>
-        <mat-form-field class="full-Width" appearance="outline" id="title">
-            <mat-label>Título</mat-label>
-            <input matInput placeholder="Informe o resumo...">
-        </mat-form-field>
-        <mat-form-field class="full-Width" appearance="outline">
-            <mat-label>Descreva o chamado</mat-label>
-            <textarea matInput placeholder="Descreva com detalhes..."></textarea>
-        </mat-form-field>
-
-     <div class="status-prioridade">
+    <div class="status-prioridade">
         <mat-form-field appearance="outline"> 
             <mat-label>Status</mat-label>                      
                 <mat-select>
@@ -41,15 +32,39 @@
                     <mat-option value="2">Baixa</mat-option>
                 </mat-select>
         </mat-form-field>
+    </div>      
+    <div class="tecnico">
+        <mat-form-field class="full-Width" appearance="outline">
+            <mat-label>Técnico:</mat-label>
+                <mat-select>
+                    <mat-option value="0">Argeu</mat-option>
+                </mat-select>
+        </mat-form-field>
+    </div>
+    <div class="cliente">
+        <mat-form-field class="full-Width" appearance="outline">
+            <mat-label>Cliente:</mat-label>
+                <mat-select>
+                    <mat-option value="0">Bianca</mat-option>
+                </mat-select>
+        </mat-form-field>
+    </div>
+    <div class="titulo">
+        <mat-form-field class="full-Width" appearance="outline" id="title">
+            <mat-label>Título</mat-label>
+            <input matInput placeholder="Informe o resumo...">
+        </mat-form-field>
+    </div>
+    <div class="textarea">
+        <mat-form-field class="full-Width" appearance="outline">
+            <mat-label>Descreva o chamado</mat-label>
+            <textarea matInput placeholder="Descreva com detalhes..."></textarea>
+        </mat-form-field>
+    </div>
+    <div class="bt">
+        <button type="button" mat-raised-button color="primary">Criar</button>
+        <button mat-stroked-button color="warn">Cancelar</button>
     </div>  
-
-
-
-
-
-
-    </form>
-
-    
-
+    </form>    
+    <p>Desenvolvido por Argeu Souza</p>
 </div>
