@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormControl, FormsModule, Validators } from '@angular/forms';
-import { RouterModule, Router } from '@angular/router';
+import { RouterModule, Router, ActivatedRoute } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -64,10 +64,13 @@ export class ChamadoUpdateComponent {
     private clienteService: ClienteService,
     private tecnicoService: TecnicoService,
     private router: Router,
-    private toast: ToastrService
+    private toast: ToastrService,
+    private route: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
+    this.chamado.id = this.route.snapshot.paramMap.get('id');
+    this.findById();
     this.findAllClientes();
     this.findAllTecnicos();
   }
@@ -104,6 +107,48 @@ export class ChamadoUpdateComponent {
     }, ex => {
       this.toast.error(ex.error);
     })
+  }
+
+  findById(): void {
+    this.chamadoService.findById(this.chamado.id).subscribe( resposta => {
+      this.chamado = resposta;
+    }, ex => {
+      this.toast.error(ex.error);
+      console.log(ex);
+    })
+
+  }
+
+  update(): void {
+    this.chamadoService.update(this.chamado).subscribe( resposta => {
+      this.toast.success('Chamado atualizado com sucesso', 'Atualização de Chamado');
+      this.router.navigate(['/chamados']);
+    }, ex => {
+      this.toast.error(ex.error);
+      console.log(ex);
+    })
+  }
+
+  retornaStatus(status: any): string {
+    if (status == '0') {
+      return 'ABERTO'
+    } else if (status == '1') {
+      return 'ANDAMENTO'
+    } else if (status == '2') {
+      return 'ENCERRADO'
+    } else {
+      throw new Error('Status inválido');
+    }
+  }
+
+  retornaPrioridade(prioridade: any): string {
+    if (prioridade == '0') {
+      return 'BAIXA'
+    } else if (prioridade == '1') {
+      return 'MÉDIA'
+    } else {
+      return 'ALTA'
+    }
   }
 
 }

@@ -16,16 +16,15 @@
     <form>
     <div class="status-prioridade">
         <mat-form-field appearance="outline"> 
-            <mat-label>Status</mat-label>                      
+            <mat-label>{{ retornaStatus(chamado.status) }}</mat-label>                      
                 <mat-select name="status" [(ngModel)]="chamado.status" [formControl]="status" required>
                     <mat-option value="0">Aberto</mat-option>
                     <mat-option value="1">Andamento</mat-option>
                     <mat-option value="2">Encerrado</mat-option>                    
                 </mat-select>
             </mat-form-field>
-
         <mat-form-field appearance="outline">
-            <mat-label>Prioridade</mat-label>
+            <mat-label>{{ retornaPrioridade(chamado.prioridade) }}</mat-label>
                 <mat-select name="prioridade" [(ngModel)]="chamado.prioridade" [formControl]="prioridade" required>
                     <mat-option value="0">Alta</mat-option>
                     <mat-option value="1">Média</mat-option>
@@ -35,7 +34,7 @@
     </div>      
     <div class="tecnico">
         <mat-form-field class="full-Width" appearance="outline">
-            <mat-label>Técnico:</mat-label>
+            <mat-label>{{ chamado.nomeTecnico }}</mat-label>
                 <mat-select name="tecnico" [(ngModel)]="chamado.tecnico" [formControl]="tecnico" required>
                     <mat-option *ngFor="let tec of tecnicos" value="{{tec.id}}"> {{tec.nome}}</mat-option>
                 </mat-select>
@@ -43,7 +42,7 @@
     </div>
     <div class="cliente">
         <mat-form-field class="full-Width" appearance="outline">
-            <mat-label>Cliente:</mat-label>
+            <mat-label>{{ chamado.nomeCliente }}</mat-label>
                 <mat-select name="cliente" [(ngModel)]="chamado.cliente" [formControl]="cliente" required>
                     <mat-option *ngFor="let cli of clientes" value="{{cli.id}}">{{cli.nome}}</mat-option>
                 </mat-select>
@@ -51,18 +50,18 @@
     </div>
     <div class="titulo">
         <mat-form-field class="full-Width" appearance="outline" id="title">
-            <mat-label>Título</mat-label>
+            <mat-label>{{ chamado.titulo }}</mat-label>
             <input matInput placeholder="Informe o resumo..." name="titulo" [(ngModel)]="chamado.titulo" [formControl]="titulo" required>
         </mat-form-field>
     </div>
     <div class="textarea">
         <mat-form-field class="full-Width" appearance="outline">
-            <mat-label>Descreva o chamado</mat-label>
-            <textarea matInput placeholder="Descreva com detalhes..." name="observacoes" [(ngModel)]="chamado.observacoes" [formControl]="observacoes" required></textarea>
+            <mat-label>{{ chamado.observacoes }}</mat-label>
+            <textarea matInput name="observacoes" [(ngModel)]="chamado.observacoes" [formControl]="observacoes" required></textarea>
         </mat-form-field>
     </div>
     <div class="bt">
-        <button type="button" (click)="create()" [disabled]="!validaCampos()" mat-raised-button color="primary">Criar</button>
+        <button type="button" (click)="update()" [disabled]="!validaCampos()" mat-raised-button color="primary">Atualizar</button>
         <button mat-stroked-button color="warn" (click)="cancelar()" >Cancelar</button>
     </div>  
     </form>    
