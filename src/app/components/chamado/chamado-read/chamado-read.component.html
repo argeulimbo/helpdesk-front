@@ -1,0 +1,60 @@
+<head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=add_notes"/>
+ </head>
+
+<div class="container mat-elevation-z8">    
+    <h1 class="full-width mat-elevation-z8">
+            Visualizar Chamado
+        <span class="material-symbols-outlined" id="icon">add_notes</span>
+    </h1>
+    <img src="https://i.imgur.com/aRxzQWC.png" alt="Chamado Image" class="src">
+
+    <form>
+    <div class="status-prioridade">
+        <mat-form-field appearance="outline"> 
+            <mat-label>Status: {{ retornaStatus(chamado.status) }}</mat-label>                      
+                <mat-select name="status" [(ngModel)]="chamado.status" [formControl]="status">
+                </mat-select>
+            </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Prioridade: {{ retornaPrioridade(chamado.prioridade) }}</mat-label>
+                <mat-select name="prioridade" [(ngModel)]="chamado.prioridade" [formControl]="prioridade">
+                </mat-select>
+        </mat-form-field>
+    </div>      
+    <div class="tecnico">
+        <mat-form-field class="full-Width" appearance="outline">
+            <mat-label>Técnico: {{ chamado.nomeTecnico }}</mat-label>
+                <mat-select name="tecnico" [(ngModel)]="chamado.tecnico" [formControl]="tecnico">
+                </mat-select>
+        </mat-form-field>
+    </div>
+    <div class="cliente">
+        <mat-form-field class="full-Width" appearance="outline">
+            <mat-label>Cliente: {{ chamado.nomeCliente }}</mat-label>
+                <mat-select name="cliente" [(ngModel)]="chamado.cliente" [formControl]="cliente">          
+                </mat-select>
+        </mat-form-field>
+    </div>
+    <div class="titulo">
+        <mat-form-field class="full-Width" appearance="outline" id="title">
+            <mat-label>{{ chamado.titulo }}</mat-label>
+            <input matInput readonly name="titulo" [(ngModel)]="chamado.titulo" [formControl]="titulo">
+        </mat-form-field>
+    </div>
+    <div class="textarea">
+        <mat-form-field class="full-Width" appearance="outline">
+            <mat-label>{{ chamado.observacoes }}</mat-label>
+            <textarea matInput readonly name="observacoes" [(ngModel)]="chamado.observacoes" [formControl]="observacoes"></textarea>
+        </mat-form-field>
+    </div>
+    <div class="bt">
+        <button mat-stroked-button color="warn" (click)="cancelar()">Voltar</button>
+    </div>  
+    </form>    
+    <p>Desenvolvido por Argeu Souza</p>
+</div>
